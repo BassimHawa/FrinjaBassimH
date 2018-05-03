@@ -70,7 +70,7 @@ function scene:create( event )
     -----------------------------------------------------------------------------------------
 
     -- Insert the background image and set it to the center of the screen
-    bkg_image = display.newImage("Images/main_menu.png")
+    bkg_image = display.newImage("Images/MainMenuBassimH.png")
     bkg_image.x = display.contentCenterX
     bkg_image.y = display.contentCenterY
     bkg_image.width = display.contentWidth
@@ -91,12 +91,12 @@ function scene:create( event )
     playButton = widget.newButton( 
         {   
             -- Set its position on the screen relative to the screen size
-            x = display.contentWidth/2,
-            y = display.contentHeight*7/8,
+            x = 500, 
+            y = 250, 
 
             -- Insert the images here
-            defaultFile = "Images/Start Button Unpressed.png",
-            overFile = "Images/Start Button Pressed.png",
+            defaultFile = "Images/PlayButtonUnpressedRyomaS.png",
+            overFile = "Images/PlayButtonPressedRyomaS.png",
 
             -- When the button is released, call the Level1 screen transition function
             onRelease = Level1ScreenTransition          
@@ -108,12 +108,12 @@ function scene:create( event )
     creditsButton = widget.newButton( 
         {
             -- Set its position on the screen relative to the screen size
-            x = display.contentWidth*7/8,
-            y = display.contentHeight*2/8,
+            x = 500,
+            y = 550,
 
             -- Insert the images here
-            defaultFile = "Images/Credits Button Unpressed.png",
-            overFile = "Images/Credits Button Pressed.png",
+            defaultFile = "Images/CreditsButtonUnpressedRyomaS.png",
+            overFile = "Images/CreditsButtonPressedRyomaS.png",
 
             -- When the button is released, call the Credits transition function
             onRelease = CreditsTransition
@@ -123,12 +123,12 @@ function scene:create( event )
      instructionsButton = widget.newButton( 
         {
             -- Set its position on the screen relative to the screen size
-            x = display.contentWidth*1/8,
-            y = display.contentHeight*2/8,
+            x = 500,
+            y = 400,
 
             -- Insert the images here
-            defaultFile = "Images/Instructions ButtonUnpressed.png",
-            overFile = "Images/Instructions Button Pressed.png",
+            defaultFile = "Images/InstructionsButtonUnpressedBassimH.png",
+            overFile = "Images/InstructionsButtonPressedBassimH.png",
 
             -- When the button is released, call the Credits transition function
             onRelease = InstructionsTransition
