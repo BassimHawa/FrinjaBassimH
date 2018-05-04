@@ -9,6 +9,7 @@
 
 -- Use Composer Library
 local composer = require( "composer" )
+local widget = require( "widget" )
 
 -- Name the Scene
 sceneName = "splash_screen"
@@ -16,7 +17,7 @@ sceneName = "splash_screen"
 -----------------------------------------------------------------------------------------
 
 -- Create Scene Object
-local scene = composer.newScene( splash_screen )
+local scene = composer.newScene( sceneName )
 
 ----------------------------------------------------------------------------------------
 -- LOCAL VARIABLES

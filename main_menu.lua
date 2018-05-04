@@ -1,8 +1,8 @@
 -----------------------------------------------------------------------------------------
 --
 -- main_menu.lua
--- Created by: Your Name
--- Date: Month Day, Year
+-- Created by: Bassim
+-- Date: May 4, 2018
 -- Description: This is the main menu, displaying the credits, instructions & play buttons.
 -----------------------------------------------------------------------------------------
 
@@ -36,6 +36,8 @@ local bkg_image
 local playButton
 local creditsButton
 local instructionsButton
+local backgroundMusic = audio.loadSound("Sounds/Phoenix Call.mp3")
+local backgroundMusicChannel
 -----------------------------------------------------------------------------------------
 -- LOCAL FUNCTIONS
 -----------------------------------------------------------------------------------------
@@ -76,9 +78,17 @@ function scene:create( event )
     bkg_image.width = display.contentWidth
     bkg_image.height = display.contentHeight
 
+    --display the name of the game
+    frinja = display.newText( "FRINJA", display.contentWidth/2, 100, nil, 80 )
+    frinja:setTextColor(255/255, 0/255, 0/255)
+
+    frinja2 = display.newText( "FRINJA", display.contentWidth/2, 110, nil, 80 )
+    frinja2:setTextColor(0/255, 255/255, 0/255)
 
     -- Associating display objects with this scene 
     sceneGroup:insert( bkg_image )
+    sceneGroup:insert(frinja)
+    sceneGroup:insert(frinja2)
 
     -- Send the background image to the back layer so all other objects can be on top
     bkg_image:toBack()
@@ -93,6 +103,10 @@ function scene:create( event )
             -- Set its position on the screen relative to the screen size
             x = 500, 
             y = 250, 
+
+            width = 300,
+            height = 150,
+
 
             -- Insert the images here
             defaultFile = "Images/PlayButtonUnpressedRyomaS.png",
@@ -109,7 +123,11 @@ function scene:create( event )
         {
             -- Set its position on the screen relative to the screen size
             x = 500,
-            y = 550,
+            y = 650,
+
+            width = 300,
+            height = 150,
+
 
             -- Insert the images here
             defaultFile = "Images/CreditsButtonUnpressedRyomaS.png",
@@ -124,7 +142,10 @@ function scene:create( event )
         {
             -- Set its position on the screen relative to the screen size
             x = 500,
-            y = 400,
+            y = 450,
+
+            width = 300,
+            height = 150,
 
             -- Insert the images here
             defaultFile = "Images/InstructionsButtonUnpressedBassimH.png",
@@ -167,7 +188,8 @@ function scene:show( event )
     -- Called when the scene is now on screen.
     -- Insert code here to make the scene come alive.
     -- Example: start timers, begin animation, play audio, etc.
-    elseif ( phase == "did" ) then       
+    elseif ( phase == "did" ) then  
+     backgroundMusicChannel = audio.play(backgroundMusic)     
         
 
     end
@@ -197,6 +219,7 @@ function scene:hide( event )
 
     elseif ( phase == "did" ) then
         -- Called immediately after scene goes off screen.
+        audio.stop(backgroundMusicChannel)
     end
 
 end -- function scene:hide( event )
